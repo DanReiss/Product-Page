@@ -1,2 +1,2 @@
-Product Page frontendmentor.io
+Product Page
 HTML,CSS,JS
