@@ -26,6 +26,7 @@
 #logo-commerce{
     align-self: center;
     width: 175px;
+    cursor: pointer;
 }
 
 #nav-sections > ul{
@@ -37,6 +38,11 @@
     align-items: center;
 }
 
+#nav-sections > ul > li:hover{
+    border-bottom: 2px solid #FF7E1B;
+    cursor: pointer;
+}
+
 
 #user-section{
     width: 10%;/* PROVISORIO */
@@ -46,11 +52,56 @@
     align-items: center;
 }
 
+.cart{
+    cursor: pointer;
+}
+
+
 .profile-image{
     width: 58px;
     border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.1s;
 }
 
+.profile-image:active{
+    width: 58px;
+    border-radius: 50%;
+    border: 2px solid #FF7E1B;
+    cursor: pointer;
+}
+
+.cart-box{
+    position: absolute;
+    display: none;
+    width: 350px;
+    padding: 15px;
+    border: 2px  gainsboro solid;
+    border-radius: 8px;
+    left: 74.5%;
+}
+
+.cart-empty{
+    display: none;
+}
+
+.cart-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto;
+}
+
+.product-image-in-cart{
+    border-radius: 8px;
+    grid-row: 1 / 4;
+}
+
+hr{
+    margin: auto;
+    opacity: 0.4;
+    max-width: 90vw;
+    width: 100%;
+}
 
 #product-container{
     padding-top: 150px;
@@ -156,6 +207,10 @@
     background-color: gainsboro;
 }
 
+.minus-item, .plus-item{
+    cursor: pointer;
+}
+
 .cart-section{
     margin: auto;
     padding: 25px 0;
@@ -170,6 +225,7 @@
     width: 275px;
     height: 58px;
     border-radius: 8px;
+    cursor: pointer;
     background-color: #FF7E1B;
     display: flex;
     align-items: center;
@@ -189,3 +245,8 @@
     color: #69707D;
     padding: 10px;
 }
+
+.num-selected{
+    border: 3px solid #FF7E1B;
+}
+
