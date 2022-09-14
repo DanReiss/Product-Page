@@ -1,10 +1,16 @@
-
+// cart
 const cartProfile = document.getElementById('user-section')
 const cartBox = document.querySelector('.cart-box')
+// sistema quantidade de itens
+const minusItem = document.querySelector('.minus-item')
+const plusItem = document.querySelector('.plus-item')
+let itemsToAdd = document.querySelector('.items-to-add')
 
 let sizesSelector = document.querySelectorAll('.num-box')
 let size1 = document.getElementById('A40');
 let price1 = document.getElementById('PriceA2');
+
+// em produção
 
 let productInfo1 = {
     name: "Air Force 1 Premium",
@@ -51,6 +57,54 @@ cartProfile.addEventListener('mouseout', () =>{
 
 addToCart();
 
+//---------------------------------------------------------
+
+// Mobile Nav Bar
+
+class MobileNavbar {
+    constructor(mobileMenu, navList, navLinks) {
+      this.mobileMenu = document.querySelector(mobileMenu);
+      this.navList = document.querySelector(navList);
+      this.navLinks = document.querySelectorAll(navLinks);
+      this.activeClass = "active";
+  
+      this.handleClick = this.handleClick.bind(this);
+    }
+  
+    animateLinks() {
+      this.navLinks.forEach((link, index) => {
+        link.style.animation
+          ? (link.style.animation = "")
+          : (link.style.animation = `navLinkFade 0.5s ease forwards ${
+              index / 7 + 0.3
+            }s`);
+      });
+    }
+  
+    handleClick() {
+      this.navList.classList.toggle(this.activeClass);
+      this.mobileMenu.classList.toggle(this.activeClass);
+      this.animateLinks();
+    }
+  
+    addClickEvent() {
+      this.mobileMenu.addEventListener("click", this.handleClick);
+    }
+  
+    init() {
+      if (this.mobileMenu) {
+        this.addClickEvent();
+      }
+      return this;
+    }
+  }
+  
+  const mobileNavbar = new MobileNavbar(
+    ".mobile-menu",
+    ".nav-list",
+    ".nav-list li",
+  );
+  mobileNavbar.init();
 
 
-
+//--------------------------------------------------------

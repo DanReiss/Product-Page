@@ -11,10 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="nav-bar">
-        <div id="nav-sections">
+    <div class="nav-bar">
+        <div class="nav-sections">
             <img src="./assets/sneakersfont.png" alt="logo-e-commerce" id="logo-commerce">
-            <ul>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
                 <li>Collection</li>
                 <li>Men</li>
                 <li>Women</li>
@@ -33,11 +38,12 @@
             <p>cart is empty</p>
         </div>
         <div class="cart-container">
-            <img src="./assets/maksim-larin-1vy2QcZd5FU-unsplash.jpg" width="75px" alt="product-image-in-cart" class="product-image-in-cart">
+            <img src="./assets/maksim-larin-1vy2QcZd5FU-unsplash.jpg" width="100px" alt="product-image-in-cart" class="product-image-in-cart">
             <p id="NikeXCarhartt">Nike Air Force 1 Premium X Carhartt WIP</p>
             <p id="A40">Size</p>
             <p id="PriceA2">Price * 3 = x</p>
         </div>
+        <h3 class="checkout-button">Checkout</h3>
     </div>
         <hr>
     <div id="product-container">
@@ -74,7 +80,7 @@
             <div class="cart-section">
                 <div class="items-amount">
                     <img src="./assets/icon-minus.svg" alt="minus-item-in-cart" class="minus-item">
-                    <span>0</span>
+                    <span class="items-to-add">0</span>
                     <img src="./assets/icon-plus.svg" alt="plus-item-in-cart" class="plus-item">
                 </div>
                 <div class="add-to-cart">
