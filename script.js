@@ -1,7 +1,8 @@
 // cart
 const cartProfile = document.getElementById('user-section');
 const cartBox = document.querySelector('.cart-box');
-const cartItem = document.querySelector('.cart-container');
+const cartContainerItem = document.querySelector('.cart-container')
+const cartItem = document.querySelector('.cart-container-link');
 const cartEmpty = document.querySelector('.cart-empty');
 // sistema quantidade de itens
 const minusItem = document.querySelector('.minus-item');
@@ -19,13 +20,14 @@ let newSize = '';
 let newItems = 0;
 
 cartBoxClick.addEventListener('click', () =>{
-  if(productInfo1.size === ''){
+  if(productInfo1.size === '' & newItems!== 0){
     productInfo1.size = newSize;
     productInfo1.quantity = newItems;
     cartEmpty.style.display = 'none';
     cartItem.style.display = 'grid';
     addToCart();
     cartBox.style.display = 'block';
+    cartContainerItem.style.display = 'block';
     setTimeout( () =>{
       cartBox.style.display = 'none';
     }, 1500)
@@ -33,14 +35,20 @@ cartBoxClick.addEventListener('click', () =>{
     let productInfo2 =  Object.assign({}, productInfo1)
     productInfo2.size = newSize;
     productInfo2.quantity = newItems;
-  }else if (newSize === productInfo1.size){
+  }else if (newSize === productInfo1.size & newItems!== 0){
     productInfo1.quantity += newItems;
     itemsToAdd = productInfo1.quantity
     addToCart();
     cartBox.style.display = 'block';
+    cartContainerItem.style.display = 'block';
     setTimeout( () =>{
       cartBox.style.display = 'none';
     }, 1500)
+  }else if (newItems === 0){
+    itemsToAdd.style.color = 'red';
+    setTimeout(() =>{
+      itemsToAdd.style.color = 'black';
+    },1.5 * 1500)
   }
   
 })
@@ -52,9 +60,14 @@ let productInfo3 = Object.assign({}, productInfo1)
 
 
 function addToCart(){
+  if(newItems !== 0){
     size1.innerHTML = productInfo1.size;
     price1.innerHTML = productInfo1.price + "x" + productInfo1.quantity + "<b>" + " $" + productInfo1.price * productInfo1.quantity + "</b>";
     itemsToAdd.innerHTML = productInfo1.quantity;
+  }else{
+
+    console.log("foi")
+  }
 };
 
 // quantidade para adicionar no carrinho
@@ -98,14 +111,21 @@ sizesSelector.forEach(sizeBox => {
         console.log(newSize);
 });
 
-cartProfile.addEventListener('mouseover', () =>{
+let displayOn = 0;
+addEventListener('click', (e) =>{
+  if(displayOn === 0){
+    if(e.target.classList[0] === 'profile-image' || e.target.classList[0] === 'cart'){
+    displayOn = 1;
     cartBox.style.display = 'block';
-});
-
-cartProfile.addEventListener('mouseout', () =>{
+    }else{
+      return;
+    } 
+  }else {
     cartBox.style.display = 'none';
+    displayOn = 0;
+  }
 });
-
+//quando for clicado fora do elemento, display = 'none';
 //---------------------------------------------------------
 
 // Mobile Nav Bar
