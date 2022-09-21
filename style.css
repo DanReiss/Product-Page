@@ -102,12 +102,26 @@ body{
     animation: opacityAnimation  250ms ease-in;
     position: absolute;
     display: none;
+    /* display grid onclick */
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
     width: 350px;
     padding: 15px;
     border: 2px  gainsboro solid;
     background-color: white;
     border-radius: 8px;
     left: 74.5%;
+}
+
+
+.close-cart{
+    transition: all 250ms;
+    cursor: pointer;
+    align-self: center;
+}
+
+.close-cart:active{
+    transform: scale(0.9);
 }
 
 .cart-empty{
@@ -119,18 +133,30 @@ body{
 
 .cart-container{
     display: none;
+    grid-column-start: span 2;
 }
 
 .cart-container a{
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
     display: block;
-   text-decoration: none;
-   color: black;
+    text-decoration: none;
+    color: black;
+}
+
+.delete-item{
+    transition: all 250ms;
+    cursor: pointer;
+    align-self: center;
+}
+
+.delete-item:active{
+    transform: scale(0.925)
 }
 
 .checkout-button{
+    grid-column-start: span 2;
     width: 100%;
     cursor: pointer;
     transition: all 250ms;
@@ -150,8 +176,8 @@ body{
 
 
 .product-image-in-cart{
-    width: 100px;
-    margin: 10px;
+    width: 110px;
+    margin-right: 10px;
     border-radius: 8px;
     grid-row: 1 / 4;
 }
@@ -329,7 +355,7 @@ hr{
 }
 
 .add-to-cart > p{
-    font-size: 20px;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #69707D;
     padding: 10px;
@@ -440,7 +466,10 @@ hr{
 }
 
 @media (max-width: 580px) and (min-width: 100px){
-/* PRODUTO 100VW e SCROLL PARA O LADO, para proximas fotos */
+
+    html{
+        font-size: 0.8rem;
+    }
 
     .mobile-menu{
         padding: 5px;
@@ -461,14 +490,26 @@ hr{
     }
 
     .cart-box{
-        width: 100vw;
+        font-size: 1.25rem;
+        max-width: 100vw;
+        width: 100%;
         position: absolute;
         border: 2px  gainsboro solid;
         background-color: white;
         border-radius: 8px;
+        margin: auto;
         left: 0;
+        right: 0;
     }
 
+    .cart-container{
+        font-size: 1.4rem;
+    }
+
+    .product-image-in-cart{
+        /* width: 100%;
+        margin-right: 50px; */
+    }
     
     .gallery{
         background-color: #FF7E1B;
@@ -529,5 +570,15 @@ hr{
         display: grid;
         grid-template-columns: auto auto auto;
         align-content: center;
+    }
+
+    .num-box{
+        width: 75px;
+        width: 85px;
+        height: 40px;
+    }
+
+    .align-center{
+        grid-column-start: 2;
     }
 }

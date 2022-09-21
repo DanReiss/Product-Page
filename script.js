@@ -13,6 +13,8 @@ const cartBoxClick = document.querySelector('.add-to-cart');
 let sizesSelector = document.querySelectorAll('.num-box');
 let size1 = document.getElementById('A40');
 let price1 = document.getElementById('PriceA2');
+//
+const deleteItem = document.querySelector('.delete-item')
 
 // em produção
 
@@ -26,7 +28,7 @@ cartBoxClick.addEventListener('click', () =>{
     cartEmpty.style.display = 'none';
     cartItem.style.display = 'grid';
     addToCart();
-    cartBox.style.display = 'block';
+    cartBox.style.display = 'grid';
     cartContainerItem.style.display = 'block';
     setTimeout( () =>{
       cartBox.style.display = 'none';
@@ -39,7 +41,7 @@ cartBoxClick.addEventListener('click', () =>{
     productInfo1.quantity += newItems;
     itemsToAdd = productInfo1.quantity
     addToCart();
-    cartBox.style.display = 'block';
+    cartBox.style.display = 'grid';
     cartContainerItem.style.display = 'block';
     setTimeout( () =>{
       cartBox.style.display = 'none';
@@ -53,10 +55,16 @@ cartBoxClick.addEventListener('click', () =>{
   
 })
 
+
+
 let productInfo1 = {
-    name: "Air Force 1 Premium", price: "400", discount: "0", size : "",quantity: 0,
+    name: "Air Force 1 Premium", 
+    price: "400", 
+    discount: "0", 
+    size : "",
+    quantity: 0,
 };
-let productInfo3 = Object.assign({}, productInfo1)
+let productInfo2 = Object.assign({}, productInfo1)
 
 
 function addToCart(){
@@ -65,10 +73,18 @@ function addToCart(){
     price1.innerHTML = productInfo1.price + "x" + productInfo1.quantity + "<b>" + " $" + productInfo1.price * productInfo1.quantity + "</b>";
     itemsToAdd.innerHTML = productInfo1.quantity;
   }else{
-
-    console.log("foi")
+    return false;
   }
 };
+
+//delete item do carrinho
+
+deleteItem.addEventListener('click', () =>{
+  productInfo1.quantity = 0;
+  productInfo1.size =  0;
+  cartContainerItem.style.display = "none";
+  addToCart();
+});
 
 // quantidade para adicionar no carrinho
 
@@ -89,6 +105,10 @@ plusItem.addEventListener('click', ()=>{
     return
   };
 });
+
+
+let newCartContainer = cartContainerItem.cloneNode(true);
+console.log(newCartContainer)
 
 //----------------------------------------------------
 
@@ -111,21 +131,22 @@ sizesSelector.forEach(sizeBox => {
         console.log(newSize);
 });
 
-let displayOn = 0;
+
+/// consertar isso !!!!
+let displayOn = true
 addEventListener('click', (e) =>{
-  if(displayOn === 0){
+  if(displayOn){
     if(e.target.classList[0] === 'profile-image' || e.target.classList[0] === 'cart'){
-    displayOn = 1;
-    cartBox.style.display = 'block';
+    displayOn = false;
+    cartBox.style.display = 'grid';
     }else{
       return;
     } 
   }else {
     cartBox.style.display = 'none';
-    displayOn = 0;
+    displayOn = true;
   }
 });
-//quando for clicado fora do elemento, display = 'none';
 //---------------------------------------------------------
 
 // Mobile Nav Bar
