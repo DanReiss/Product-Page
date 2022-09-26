@@ -430,7 +430,7 @@ hr{
 
 .mobile-menu.active {
     position: relative;
-    left: 22vw;
+    left: 8vw;
     transform: translateX(-50%);
     z-index: 2;
 }
@@ -465,7 +465,7 @@ hr{
     }
 }
 
-@media (max-width: 580px) and (min-width: 100px){
+@media (max-width: 580px) and (min-width: 0px){
 
     html{
         font-size: 0.8rem;
@@ -509,6 +509,10 @@ hr{
     .product-image-in-cart{
         /* width: 100%;
         margin-right: 50px; */
+    }
+
+    hr{
+        display: none;
     }
     
     .gallery{
@@ -581,4 +585,29 @@ hr{
     .align-center{
         grid-column-start: 2;
     }
+}
+
+@media (max-width: 328px){
+
+
+    .nav-list{
+        font-size: 1.2rem;
+    }
+
+
+    .mobile-menu{
+        padding: 5px;
+    }
+
+    #logo-commerce{
+        width: 125px;
+    }
+
+    .profile-image{
+         margin: 0;
+        width: 45px;
+        height: 45px;
+    }  
+
+
 }

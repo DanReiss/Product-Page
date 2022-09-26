@@ -10,8 +10,8 @@ const plusItem = document.querySelector('.plus-item');
 let itemsToAdd = document.querySelector('.items-to-add');
 // cart
 const cartBoxClick = document.querySelector('.add-to-cart');
-let sizesSelector = document.querySelectorAll('.num-box');
-let size1 = document.getElementById('A40');
+// let sizesSelector = document.querySelectorAll('.num-box');
+// let size1 = document.getElementById('A40');
 let price1 = document.getElementById('PriceA2');
 //
 const deleteItem = document.querySelector('.delete-item')
@@ -23,7 +23,7 @@ let newItems = 0;
 
 cartBoxClick.addEventListener('click', () =>{
   if(productInfo1.size === '' & newItems!== 0){
-    productInfo1.size = newSize;
+    // productInfo1.size = newSize;
     productInfo1.quantity = newItems;
     cartEmpty.style.display = 'none';
     cartItem.style.display = 'grid';
@@ -33,11 +33,11 @@ cartBoxClick.addEventListener('click', () =>{
     setTimeout( () =>{
       cartBox.style.display = 'none';
     }, 1500)
-  }else if (productInfo1.size !== '' & productInfo1.quantity != 0 & newSize !== productInfo1.size){
-    let productInfo2 =  Object.assign({}, productInfo1)
-    productInfo2.size = newSize;
-    productInfo2.quantity = newItems;
-  }else if (newSize === productInfo1.size & newItems!== 0){
+  // }else if (productInfo1.size !== '' & productInfo1.quantity != 0 & newSize !== productInfo1.size){
+  //   let productInfo2 =  Object.assign({}, productInfo1)
+  //   productInfo2.size = newSize;
+  //   productInfo2.quantity = newItems;
+  }else if (newItems!== 0){
     productInfo1.quantity += newItems;
     itemsToAdd = productInfo1.quantity
     addToCart();
@@ -64,12 +64,11 @@ let productInfo1 = {
     size : "",
     quantity: 0,
 };
-let productInfo2 = Object.assign({}, productInfo1)
 
 
 function addToCart(){
   if(newItems !== 0){
-    size1.innerHTML = productInfo1.size;
+    // size1.innerHTML = productInfo1.size; // desativado
     price1.innerHTML = productInfo1.price + "x" + productInfo1.quantity + "<b>" + " $" + productInfo1.price * productInfo1.quantity + "</b>";
     itemsToAdd.innerHTML = productInfo1.quantity;
   }else{
@@ -81,7 +80,7 @@ function addToCart(){
 
 deleteItem.addEventListener('click', () =>{
   productInfo1.quantity = 0;
-  productInfo1.size =  0;
+  // productInfo1.size =  0; // desativado
   cartContainerItem.style.display = "none";
   addToCart();
 });
@@ -110,29 +109,6 @@ plusItem.addEventListener('click', ()=>{
 let newCartContainer = cartContainerItem.cloneNode(true);
 console.log(newCartContainer)
 
-//----------------------------------------------------
-
-sizesSelector.forEach(sizeBox => {
-    sizeBox.addEventListener('click', () => {
-        // temporary solution !!! 
-        sizesSelector.item(0).classList.remove("num-selected");
-        sizesSelector.item(1).classList.remove("num-selected");
-        sizesSelector.item(2).classList.remove("num-selected");
-        sizesSelector.item(3).classList.remove("num-selected");
-        sizesSelector.item(4).classList.remove("num-selected");
-        sizesSelector.item(5).classList.remove("num-selected");
-        sizesSelector.item(6).classList.remove("num-selected");
-        sizesSelector.item(7).classList.remove("num-selected");
-        sizesSelector.item(8).classList.remove("num-selected");
-        sizesSelector.item(9).classList.remove("num-selected");
-        // solução temporária !!!
-        sizeBox.classList.add("num-selected");
-        newSize = sizeBox.classList[1];
-        console.log(newSize);
-});
-
-
-/// consertar isso !!!!
 let displayOn = true
 addEventListener('click', (e) =>{
   if(displayOn){
@@ -196,8 +172,6 @@ class MobileNavbar {
   );
   mobileNavbar.init();
 
-});
-
 //-------------------------------------------------------------------------------------------------------------------------------
 // Mobile Gallery e LightBox Gallery
 
@@ -217,3 +191,25 @@ imagesGallery.forEach((item, i) => {
     item.scrollLeft -= GalleryWidth;
   });
 });
+
+//----------------------------------------------
+//desativado por enquanto...
+
+// sizesSelector.forEach(sizeBox => {
+//     sizeBox.addEventListener('click', () => {
+//         // temporary solution !!! 
+//         sizesSelector.item(0).classList.remove("num-selected");
+//         sizesSelector.item(1).classList.remove("num-selected");
+//         sizesSelector.item(2).classList.remove("num-selected");
+//         sizesSelector.item(3).classList.remove("num-selected");
+//         sizesSelector.item(4).classList.remove("num-selected");
+//         sizesSelector.item(5).classList.remove("num-selected");
+//         sizesSelector.item(6).classList.remove("num-selected");
+//         sizesSelector.item(7).classList.remove("num-selected");
+//         sizesSelector.item(8).classList.remove("num-selected");
+//         sizesSelector.item(9).classList.remove("num-selected");
+//         // solução temporária !!!
+//         sizeBox.classList.add("num-selected");
+//         newSize = sizeBox.classList[1];
+//         console.log(newSize);
+// });
