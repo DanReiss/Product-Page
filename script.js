@@ -10,8 +10,8 @@ const plusItem = document.querySelector('.plus-item');
 let itemsToAdd = document.querySelector('.items-to-add');
 // cart
 const cartBoxClick = document.querySelector('.add-to-cart');
-// let sizesSelector = document.querySelectorAll('.num-box');
-// let size1 = document.getElementById('A40');
+let sizesSelector = document.querySelectorAll('.num-box');
+let size1 = document.getElementById('A40');
 let price1 = document.getElementById('PriceA2');
 //
 const deleteItem = document.querySelector('.delete-item')
@@ -22,25 +22,23 @@ let newSize = '';
 let newItems = 0;
 
 cartBoxClick.addEventListener('click', () =>{
-  if(productInfo1.size === '' & newItems!== 0){
-    // productInfo1.size = newSize;
+  if(newItems !== 0 & productInfo1.quantity === 0){
     productInfo1.quantity = newItems;
     cartEmpty.style.display = 'none';
     cartItem.style.display = 'grid';
     addToCart();
+    newItems = 0;
+    itemsToAdd.innerHTML = 0;
     cartBox.style.display = 'grid';
     cartContainerItem.style.display = 'block';
     setTimeout( () =>{
       cartBox.style.display = 'none';
     }, 1500)
-  // }else if (productInfo1.size !== '' & productInfo1.quantity != 0 & newSize !== productInfo1.size){
-  //   let productInfo2 =  Object.assign({}, productInfo1)
-  //   productInfo2.size = newSize;
-  //   productInfo2.quantity = newItems;
-  }else if (newItems!== 0){
+  }else if (productInfo1.quantity !== 0){
     productInfo1.quantity += newItems;
-    itemsToAdd = productInfo1.quantity
     addToCart();
+    newItems = 0;
+    itemsToAdd.innerHTML = 0;
     cartBox.style.display = 'grid';
     cartContainerItem.style.display = 'block';
     setTimeout( () =>{
@@ -82,6 +80,7 @@ deleteItem.addEventListener('click', () =>{
   productInfo1.quantity = 0;
   // productInfo1.size =  0; // desativado
   cartContainerItem.style.display = "none";
+  cartEmpty.style.display = "block"
   addToCart();
 });
 
@@ -90,7 +89,8 @@ deleteItem.addEventListener('click', () =>{
 minusItem.addEventListener('click', ()=>{
   if(newItems !== 0){
     newItems--;
-    itemsToAdd.innerHTML = newItems;
+    console.log(newItems)
+    itemsToAdd.innerText = newItems;
   }else{
     return
   };
@@ -99,7 +99,8 @@ minusItem.addEventListener('click', ()=>{
 plusItem.addEventListener('click', ()=>{
   if(newItems <  7){
     newItems++;
-    itemsToAdd.innerHTML = newItems;
+    console.log(newItems)
+    itemsToAdd.innerText = newItems;
   }else{
     return
   };

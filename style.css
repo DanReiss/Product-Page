@@ -366,6 +366,19 @@ hr{
     border: 3px solid #FF7E1B;
 }
 
+@media (max-width: 1200px){
+    .cart-box{
+        font-size: 1.25rem;
+        position: absolute;
+        border: 2px  gainsboro solid;
+        background-color: white;
+        border-radius: 8px;
+        margin: auto;
+        left: 48vw;
+        right: 0;
+    }
+}   
+
 
 @media (max-width: 1000px){
     body{
@@ -411,9 +424,20 @@ hr{
  .nav-sections{
     flex-direction: row-reverse;
  }
+ .cart-box{
+    font-size: 1.25rem;
+    position: absolute;
+    border: 2px  gainsboro solid;
+    background-color: white;
+    border-radius: 8px;
+    margin: auto;
+    left: 45vw;
+    right: 0;
+}
 }
 
 .nav-list.active{
+    position: fixed;
     transform: translateX(0);
 }
 
