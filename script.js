@@ -4,6 +4,7 @@ const cartBox = document.querySelector('.cart-box');
 const cartContainerItem = document.querySelector('.cart-container')
 const cartItem = document.querySelector('.cart-container-link');
 const cartEmpty = document.querySelector('.cart-empty');
+const TitleYourCart = document.querySelector(".cart-box h3")
 // sistema quantidade de itens
 const minusItem = document.querySelector('.minus-item');
 const plusItem = document.querySelector('.plus-item');
@@ -31,6 +32,7 @@ cartBoxClick.addEventListener('click', () =>{
     itemsToAdd.innerHTML = 0;
     cartBox.style.display = 'grid';
     cartContainerItem.style.display = 'block';
+    TitleYourCart.focus();
     setTimeout( () =>{
       cartBox.style.display = 'none';
     }, 1500)
@@ -41,6 +43,7 @@ cartBoxClick.addEventListener('click', () =>{
     itemsToAdd.innerHTML = 0;
     cartBox.style.display = 'grid';
     cartContainerItem.style.display = 'block';
+    TitleYourCart.focus();
     setTimeout( () =>{
       cartBox.style.display = 'none';
     }, 1500)
@@ -66,7 +69,6 @@ let productInfo1 = {
 
 function addToCart(){
   if(newItems !== 0){
-    // size1.innerHTML = productInfo1.size; // desativado
     price1.innerHTML = productInfo1.price + "x" + productInfo1.quantity + "<b>" + " $" + productInfo1.price * productInfo1.quantity + "</b>";
     itemsToAdd.innerHTML = productInfo1.quantity;
   }else{
@@ -78,7 +80,6 @@ function addToCart(){
 
 deleteItem.addEventListener('click', () =>{
   productInfo1.quantity = 0;
-  // productInfo1.size =  0; // desativado
   cartContainerItem.style.display = "none";
   cartEmpty.style.display = "block"
   addToCart();
@@ -113,7 +114,7 @@ console.log(newCartContainer)
 let displayOn = true
 addEventListener('click', (e) =>{
   if(displayOn){
-    if(e.target.classList[0] === 'profile-image' || e.target.classList[0] === 'cart'){
+    if(e.target.classList[0] === 'profile-image' || e.target.classList[0] === 'cart' || e.target.classList[0] === 'img-arc'){
     displayOn = false;
     cartBox.style.display = 'grid';
     }else{
@@ -176,22 +177,22 @@ class MobileNavbar {
 //-------------------------------------------------------------------------------------------------------------------------------
 // Mobile Gallery e LightBox Gallery
 
-const imagesGallery = document.querySelectorAll('.gallery');
-const nxtBtn = [...document.querySelectorAll('.arrow-right')];
-const bckBtn = [...document.querySelectorAll('.arrow-left')];
+// const imagesGallery = document.querySelectorAll('.gallery');
+// const nxtBtn = [...document.querySelectorAll('.arrow-right')];
+// const bckBtn = [...document.querySelectorAll('.arrow-left')];
 
-imagesGallery.forEach((item, i) => {
-  let GalleryDimensions = item.getBoundingClientRect();
-  let GalleryWidth = GalleryDimensions.width;
+// imagesGallery.forEach((item, i) => {
+//   let GalleryDimensions = item.getBoundingClientRect();
+//   let GalleryWidth = GalleryDimensions.width;
 
-  nxtBtn[i].addEventListener('click', () =>{
-    item.scrollLeft += GalleryWidth;
-  });
+//   nxtBtn[i].addEventListener('click', () =>{
+//     item.scrollLeft += GalleryWidth;
+//   });
 
-  bckBtn[i].addEventListener('click', () =>{
-    item.scrollLeft -= GalleryWidth;
-  });
-});
+//   bckBtn[i].addEventListener('click', () =>{
+//     item.scrollLeft -= GalleryWidth;
+//   });
+// });
 
 //----------------------------------------------
 //desativado por enquanto...
