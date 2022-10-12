@@ -36,7 +36,7 @@ cartBoxClick.addEventListener('click', () =>{
     setTimeout( () =>{
       cartBox.style.display = 'none';
     }, 1500)
-  }else if (productInfo1.quantity !== 0){
+  }else if (productInfo1.quantity !== 0 && newItems !== 0){
     productInfo1.quantity += newItems;
     addToCart();
     newItems = 0;
@@ -172,46 +172,5 @@ class MobileNavbar {
     ".nav-list",
     ".nav-list li",
   );
+  
   mobileNavbar.init();
-
-//-------------------------------------------------------------------------------------------------------------------------------
-// Mobile Gallery e LightBox Gallery
-
-// const imagesGallery = document.querySelectorAll('.gallery');
-// const nxtBtn = [...document.querySelectorAll('.arrow-right')];
-// const bckBtn = [...document.querySelectorAll('.arrow-left')];
-
-// imagesGallery.forEach((item, i) => {
-//   let GalleryDimensions = item.getBoundingClientRect();
-//   let GalleryWidth = GalleryDimensions.width;
-
-//   nxtBtn[i].addEventListener('click', () =>{
-//     item.scrollLeft += GalleryWidth;
-//   });
-
-//   bckBtn[i].addEventListener('click', () =>{
-//     item.scrollLeft -= GalleryWidth;
-//   });
-// });
-
-//----------------------------------------------
-//desativado por enquanto...
-
-// sizesSelector.forEach(sizeBox => {
-//     sizeBox.addEventListener('click', () => {
-//         // temporary solution !!! 
-//         sizesSelector.item(0).classList.remove("num-selected");
-//         sizesSelector.item(1).classList.remove("num-selected");
-//         sizesSelector.item(2).classList.remove("num-selected");
-//         sizesSelector.item(3).classList.remove("num-selected");
-//         sizesSelector.item(4).classList.remove("num-selected");
-//         sizesSelector.item(5).classList.remove("num-selected");
-//         sizesSelector.item(6).classList.remove("num-selected");
-//         sizesSelector.item(7).classList.remove("num-selected");
-//         sizesSelector.item(8).classList.remove("num-selected");
-//         sizesSelector.item(9).classList.remove("num-selected");
-//         // solução temporária !!!
-//         sizeBox.classList.add("num-selected");
-//         newSize = sizeBox.classList[1];
-//         console.log(newSize);
-// });

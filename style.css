@@ -123,7 +123,9 @@ li{
     }
 }
 
+
 .cart-box{
+    z-index: 2;
     animation: opacityAnimation  250ms ease-in;
     position: absolute;
     display: none;
@@ -136,6 +138,10 @@ li{
     background-color: white;
     border-radius: 8px;
     left: 74.5%;
+}
+
+.cart-box h3{
+    font-weight: bold;
 }
 
 
@@ -161,6 +167,16 @@ li{
     grid-column-start: span 2;
 }
 
+.cart-container-link{
+    border-radius: 10px;
+    padding: 5px;
+    border: 0.5px solid #d0d1d2;
+}
+
+.cart-container-link:hover{
+    color: black;
+}
+
 .cart-container a{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -168,6 +184,11 @@ li{
     display: block;
     text-decoration: none;
     color: black;
+}
+
+.cart-container p{
+    margin: 0;
+    padding: 0;
 }
 
 .delete-item{
@@ -210,7 +231,8 @@ li{
     grid-row: 1 / 4;
 }
 
-hr{
+.divisor-line{
+    position: relative;
     margin: auto;
     opacity: 0.4;
     max-width: 90vw;
@@ -430,8 +452,11 @@ hr{
   }
 
  .nav-list{
+    z-index: 2;
     position: absolute;
     font-size: 25px;
+    left: 0;
+    top: 0;
     width: 50vw;
     height: 100vh;
     padding: 15%;
@@ -473,7 +498,6 @@ hr{
 }
 
 .nav-list.active{
-    z-index: 5;
     position: fixed;
     transform: translateX(0);
 }
@@ -493,7 +517,7 @@ hr{
     position: relative;
     left: 8vw;
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 3;
 }
 
 .mobile-menu.active .line1{
@@ -573,10 +597,6 @@ hr{
         font-size: 1.4rem;
     }
 
-    .product-image-in-cart{
-        /* width: 100%;
-        margin-right: 50px; */
-    }
 
     hr{
         display: none;
