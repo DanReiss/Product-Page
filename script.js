@@ -90,7 +90,6 @@ deleteItem.addEventListener('click', () =>{
 minusItem.addEventListener('click', ()=>{
   if(newItems !== 0){
     newItems--;
-    console.log(newItems)
     itemsToAdd.innerText = newItems;
   }else{
     return
@@ -100,7 +99,6 @@ minusItem.addEventListener('click', ()=>{
 plusItem.addEventListener('click', ()=>{
   if(newItems <  7){
     newItems++;
-    console.log(newItems)
     itemsToAdd.innerText = newItems;
   }else{
     return
@@ -109,7 +107,6 @@ plusItem.addEventListener('click', ()=>{
 
 
 let newCartContainer = cartContainerItem.cloneNode(true);
-console.log(newCartContainer)
 
 let displayOn = true
 addEventListener('click', (e) =>{
