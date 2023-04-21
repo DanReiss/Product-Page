@@ -14,10 +14,8 @@ const cartBoxClick = document.querySelector('.add-to-cart');
 let sizesSelector = document.querySelectorAll('.num-box');
 let size1 = document.getElementById('A40');
 let price1 = document.getElementById('PriceA2');
-//
-const deleteItem = document.querySelector('.delete-item')
 
-// em produção
+const deleteItem = document.querySelector('.delete-item')
 
 let newSize = '';
 let newItems = 0;
@@ -56,16 +54,13 @@ cartBoxClick.addEventListener('click', () =>{
   
 })
 
-
-
-let productInfo1 = {
+const productInfo1 = {
     name: "Air Force 1 Premium", 
     price: "400", 
     discount: "0", 
     size : "",
     quantity: 0,
 };
-
 
 function addToCart(){
   if(newItems !== 0){
@@ -168,6 +163,15 @@ class MobileNavbar {
     ".mobile-menu",
     ".nav-list",
     ".nav-list li",
-  );
+);
   
-  mobileNavbar.init();
+mobileNavbar.init();
+
+document.querySelector(".gallery")
+.addEventListener('click', toggleModalCarousel)
+
+function toggleModalCarousel(e){
+  if(e.target.classList[0].includes("carousel-control")) return;
+  
+  document.querySelector(".gallery").classList.toggle("on-modal")
+}
